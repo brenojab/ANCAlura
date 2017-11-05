@@ -3,16 +3,16 @@
   ViewData["Title"] = "Carrinho";
 }
 
-@model List<ItemPedido>
+@model CasaCodigoVS.Models.ViewModels.CarrinhoViewModel
 <h3>Meu carrinho</h3>
 
 <div class="panel panel-default">
     <div class="panel-heading">
 
         <div class="row">
-            <div class="col-md-6">Item</div>
-            <div class="col-md-2">Preço</div>
-            <div class="col-md-2">Quantidade</div>
+            <div class="col-md-6 text-center">Item</div>
+            <div class="col-md-2 text-center">Preço</div>
+            <div class="col-md-2 text-center">Quantidade</div>
             <div class="col-md-2">
                 <span class="pull-right">Sub-total</span>
             </div>
@@ -21,15 +21,15 @@
     </div>
     <div class="panel-body">
 
-        @foreach (var itemPedido in Model)
+        @foreach (var itemPedido in Model.Itens)
         {
-        <div class="row">
+        <div class="row" style="display:flex; align-items:center">
             <div class="col-md-3">
                 <img src="~/images/Produtos/small_@(itemPedido.Id).jpg" />
             </div>
-            <div class="col-md-3">@(itemPedido.Produto.Nome)</div>
-            <div class="col-md-2">R$ @(itemPedido.PrecoUnitario)</div>
-            <div class="col-md-2">@(itemPedido.Quantidade)</div>
+            <div class="col-md-3 text-center">@(itemPedido.Produto.Nome)</div>
+            <div class="col-md-2 text-center">R$ @(itemPedido.PrecoUnitario)</div>
+            <div class="col-md-2 text-center">@(itemPedido.Quantidade)</div>
             <div class="col-md-2">
                 <span class="pull-right"> R$ @(itemPedido.Subtotal) </span>
             </div>
@@ -43,12 +43,12 @@
                 <div class="col-md-10">
                     @*Total: @Model.Count() @Html.Raw(@Model.Count() == 1 ? "item" : "itens")*@
                     <span>
-                        Total de itens: @Model.Count() @(Model.Count == 1? "item" : "itens")
+                        Total de itens: @Model.Itens.Count() @(Model.Itens.Count == 1 ? "item" : "itens")
                     </span>
 
                 </div>
                 <div class="col-md-2">
-                    <span class="pull-right">Preço total: R$ @Model.Sum(p => p.Subtotal)</span>
+                    <span class="pull-right">Preço total: R$ @Model.Total</span>
                 </div>
             </div>
         </div>

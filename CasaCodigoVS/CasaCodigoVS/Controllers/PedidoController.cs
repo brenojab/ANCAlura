@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CasaCodigoVS.Models;
+using CasaCodigoVS.Models.ViewModels;
 
 namespace CasaCodigoVS.Controllers
 {
@@ -29,20 +30,25 @@ namespace CasaCodigoVS.Controllers
 
     public IActionResult Carrinho()
     {
-      var itensCarrinho = new List<ItemPedido>
+      return View(GetCarrinhoViewModel());
+
+    }
+
+    private CarrinhoViewModel GetCarrinhoViewModel()
+    {
+      List<ItemPedido> itensCarrinho = new List<ItemPedido>
       {
         new ItemPedido(1,produtos[0],1,produtos[0].Preco),
         new ItemPedido(2,produtos[1],2,produtos[1].Preco),
         new ItemPedido(3,produtos[2],3,produtos[2].Preco)
       };
 
-      return View(itensCarrinho);
-
+      return new CarrinhoViewModel(itensCarrinho);
     }
 
     public IActionResult Resumo()
     {
-      return View();
+      return View(GetCarrinhoViewModel());
 
     }
   }

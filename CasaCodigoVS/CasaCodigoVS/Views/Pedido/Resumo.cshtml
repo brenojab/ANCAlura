@@ -2,6 +2,7 @@
   ViewData["Title"] = "Resumo";
 }
 
+@model CasaCodigoVS.Models.ViewModels.CarrinhoViewModel
 <h3>View de Resumo</h3>
 
 <div class="panel panel-default">
@@ -31,15 +32,27 @@
             <div class="col-md-6"></div>
         </div>
         <hr />
+
+
         <div class="row">
             <div class="col-md-10">
                 <h3>Item</h3>
-                <div>REST</div>
             </div>
             <div class="col-md-2">
                 <h3>Quatidade</h3>
-                <div class="pull-right">1</div>
             </div>
         </div>
+
+        @foreach (var item in Model.Itens)
+        {
+          <div class="row">
+            <div class="col-md-10">
+                <div>@item.Produto.Nome</div>
+            </div>
+            <div class="col-md-2">
+                <div class="pull-right">@item.Quantidade</div>
+            </div>
+        </div>
+        }
     </div>
 </div>
