@@ -40,11 +40,13 @@
         </div>
 
     </div>
+</div>
 <div class="row">
     <div class="col-md-12">
 
-        @Html.ActionLink("Finalizar pedido", "resumo", "pedido", null, new { @class="btn btn-success pull-right"  } )
+        @*@Html.ActionLink("Finalizar pedido", "resumo", "pedido", null, new { @class = "btn btn-success pull-right" })*@
         @*<a href="/pedido/resumo" class="btn btn-success pull-right">Finalizar pedido</a>*@
+        <a asp-controller="pedido" asp-action="resumo" class="btn btn-success pull-right">Adicionar</a>
     </div>
 </div>
 
