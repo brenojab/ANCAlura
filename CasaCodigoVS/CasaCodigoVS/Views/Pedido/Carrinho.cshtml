@@ -2,6 +2,8 @@
 @{
   ViewData["Title"] = "Carrinho";
 }
+
+@model List<ItemPedido>
 <h3>Meu carrinho</h3>
 
 <div class="panel panel-default">
@@ -18,23 +20,35 @@
 
     </div>
     <div class="panel-body">
+
+        @foreach (var itemPedido in Model)
+        {
         <div class="row">
             <div class="col-md-3">
-                <img src="~/images/Produtos/small_4.jpg" />
+                <img src="~/images/Produtos/small_@(itemPedido.Id).jpg" />
             </div>
-            <div class="col-md-3">REST</div>
-            <div class="col-md-2">R$ 70,00</div>
-            <div class="col-md-2">3</div>
+            <div class="col-md-3">@(itemPedido.Produto.Nome)</div>
+            <div class="col-md-2">R$ @(itemPedido.PrecoUnitario)</div>
+            <div class="col-md-2">@(itemPedido.Quantidade)</div>
             <div class="col-md-2">
-                <span class="pull-right"> R$ 210,00 </span>
+                <span class="pull-right"> R$ @(itemPedido.Subtotal) </span>
             </div>
         </div>
+        }
+
+
 
         <div class="panel-footer">
             <div class="row">
-                <div class="col-md-10">Total de itens: </div>
+                <div class="col-md-10">
+                    @*Total: @Model.Count() @Html.Raw(@Model.Count() == 1 ? "item" : "itens")*@
+                    <span>
+                        Total de itens: @Model.Count() @(Model.Count == 1? "item" : "itens")
+                    </span>
+
+                </div>
                 <div class="col-md-2">
-                    <span class="pull-right">Preço total:</span>
+                    <span class="pull-right">Preço total: R$ @Model.Sum(p => p.Subtotal)</span>
                 </div>
             </div>
         </div>
