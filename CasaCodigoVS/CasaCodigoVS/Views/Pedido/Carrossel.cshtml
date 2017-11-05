@@ -6,42 +6,86 @@
 <div id="my-carousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-        <li data-target="#my-carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#my-carousel" data-slide-to="1"></li>
-        <li data-target="#my-carousel" data-slide-to="2"></li>
+
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <img src="~/images/Produtos/large_1.jpg" />
+            
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <img src="~/images/Produtos/large_1.jpg" />
+                        </div>
+                        <div class="panel-footer">
+                            <div>Camiseta 404</div>
+                            <div>R$ 50,00</div>
+                            <div class="text-center">
+                                @Html.ActionLink("Adicionar", "carrinho", "pedido")
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="panel-footer">
-                    <div>Camiseta 404</div>
-                    <div>R$ 50,00</div>
+
+                <div class="col-md-3">
+                    <div class="item">
+                        <div class="panel-body">
+                            <img src="~/images/Produtos/large_2.jpg" />
+                        </div>
+                        <div class="panel-footer">
+                            <div>Camiseta May the code be with you</div>
+                            <div>R$ 50,00</div>
+                            <div class="text-center">
+                                @Html.ActionLink("Adicionar", "carrinho", "pedido")
+                                @*<a href="/pedido/carrinho">
+                                    Adicionar
+                                </a>*@
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="col-md-3">
+                    <div class="item">
+                        <div class="panel-body">
+                            <img src="~/images/Produtos/large_3.jpg" />
+                        </div>
+                        <div class="panel-footer">
+                            <div>Camiseta Como seria bom</div>
+                            <div>R$ 50,00</div>
+                            <div class="text-center">
+                                @Html.ActionLink("Adicionar", "carrinho", "pedido")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="item">
+                        <div class="panel-body">
+                            <img src="~/images/Produtos/large_4.jpg" />
+                        </div>
+                        <div class="panel-footer">
+                            <div>Camiseta Como seria bom</div>
+                            <div>R$ 50,00</div>
+                            <div class="text-center">
+                                @Html.ActionLink("Adicionar", "carrinho", "pedido")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+
+            
+            
+
+
         </div>
-        <div class="item">
-            <div class="panel-body">
-                <img src="~/images/Produtos/large_2.jpg" />
-            </div>
-            <div class="panel-footer">
-                <div>Camiseta May the code be with you</div>
-                <div>R$ 50,00</div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="panel-body">
-                <img src="~/images/Produtos/large_3.jpg" />
-            </div>
-            <div class="panel-footer">
-                <div>Camiseta Como seria bom</div>
-                <div>R$ 50,00</div>
-            </div>
-        </div>
+        
+        
     </div>
 
     <!-- Controls -->
